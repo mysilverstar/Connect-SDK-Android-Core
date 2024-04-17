@@ -952,6 +952,9 @@ public class ConnectableDevice implements DeviceServiceListener {
     @Override
     public void getInfo(ResponseListener<Object> listener) {
         Log.e(Util.T, "Connect-SDK-Android-Core getInfo called...");
+        Collection<DeviceService> services = getServices();
+        for (DeviceService service : services)
+            service.getInfo(listener); 
     } 
 
     private int getConnectedServiceCount() {
