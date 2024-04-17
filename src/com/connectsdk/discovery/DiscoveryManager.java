@@ -555,10 +555,10 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
                     registerDefaultDeviceTypes();
                 }
 
-                ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+                // ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                // NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-                if (mWifi.isConnected()) {
+                if (true/*mWifi.isConnected()*/) {
                     for (DiscoveryProvider provider : discoveryProviders) {
                         provider.start();
                     }
