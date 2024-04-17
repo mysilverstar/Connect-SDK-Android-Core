@@ -85,13 +85,16 @@ public class SSDPDiscoveryProvider implements DiscoveryProvider {
     }
 
     private void openSocket() {
+        Log.e(Util.T, "fuck SSDPDicoveryProvider openSocket...");
         if (ssdpClient != null && ssdpClient.isConnected())
             return;
 
         try {
             InetAddress source = Util.getIpAddress(context);
-            if (source == null)
+            if (source == null) {
+                Log.e(Util.T, "fuck SSDPDicoveryProvider openSocket... source is null");
                 return;
+            }
 
             ssdpClient = createSocket(source);
         } catch (UnknownHostException e) {

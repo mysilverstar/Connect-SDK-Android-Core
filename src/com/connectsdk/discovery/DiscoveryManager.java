@@ -131,7 +131,7 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
     private CopyOnWriteArrayList<DiscoveryManagerListener> discoveryListeners;
     List<CapabilityFilter> capabilityFilters;
 
-    MulticastLock multicastLock;
+    // MulticastLock multicastLock;
     BroadcastReceiver receiver;
     boolean isBroadcastReceiverRegistered = false;
 
@@ -241,9 +241,9 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
 
         discoveryListeners = new CopyOnWriteArrayList<DiscoveryManagerListener>();
 
-        WifiManager wifiMgr = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        multicastLock = wifiMgr.createMulticastLock(Util.T);
-        multicastLock.setReferenceCounted(true);
+        // WifiManager wifiMgr = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        // multicastLock = wifiMgr.createMulticastLock(Util.T);
+        // multicastLock.setReferenceCounted(true);
 
         capabilityFilters = new ArrayList<CapabilityFilter>();
         pairingLevel = PairingLevel.OFF;
@@ -545,7 +545,7 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
         }
 
         mSearching = true;
-        multicastLock.acquire();
+        // multicastLock.acquire();
 
         Util.runOnUI(new Runnable() {
 
@@ -591,9 +591,9 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
             provider.stop();
         }
 
-        if (multicastLock.isHeld()) {
-            multicastLock.release();
-        }
+        // if (multicastLock.isHeld()) {
+        //     multicastLock.release();
+        // }
     }
 
     /**
