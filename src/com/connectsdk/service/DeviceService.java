@@ -713,5 +713,7 @@ public class DeviceService implements DeviceServiceReachabilityListener, Service
          * @param error Error with a description of the failure
          */
         public void onPairingFailed(DeviceService service, Error error);
+
+        public void getInfo(ResponseListener<Object> listener);
     }
 }

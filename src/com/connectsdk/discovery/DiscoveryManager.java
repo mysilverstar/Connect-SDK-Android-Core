@@ -774,11 +774,6 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
         handleDeviceUpdate(device);
     }
 
-    @Override
-    public void getInfo(ResponseListener<Object> listener) {
-        log.e(Util.T, "Connect-SDK-Android-Core getInfo called...");
-    }
-
     @Override public void onConnectionFailed(ConnectableDevice device, ServiceCommandError error) { } 
     @Override public void onDeviceDisconnected(ConnectableDevice device) { } 
     @Override public void onDeviceReady(ConnectableDevice device) { } 
