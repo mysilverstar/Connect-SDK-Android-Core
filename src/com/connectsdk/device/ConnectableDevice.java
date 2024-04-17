@@ -949,7 +949,6 @@ public class ConnectableDevice implements DeviceServiceListener {
     @Override public void onPairingSuccess(DeviceService service) {
     }
 
-    @Override
     public void getInfo(ResponseListener<Object> listener) {
         Log.e(Util.T, "Connect-SDK-Android-Core getInfo called...");
         Collection<DeviceService> services = getServices();
