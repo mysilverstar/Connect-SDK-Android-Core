@@ -181,6 +181,7 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
      @endcode
      */
     public static synchronized void init(Context context) {
+
         instance = new DiscoveryManager(context);
     }
 
@@ -199,6 +200,7 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
      @endcode
      */
     public static synchronized void init(Context context, ConnectableDeviceStore connectableDeviceStore) {
+        Log.w(Util.T, "fuck Network connection is disconnected");
         instance = new DiscoveryManager(context, connectableDeviceStore);
     }
 
