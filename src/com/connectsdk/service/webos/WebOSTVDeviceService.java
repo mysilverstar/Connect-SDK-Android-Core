@@ -39,6 +39,7 @@ import com.connectsdk.service.capability.MediaControl;
 import com.connectsdk.service.capability.PowerControl;
 import com.connectsdk.service.capability.TVControl;
 import com.connectsdk.service.capability.VolumeControl;
+import com.connectsdk.service.capability.listeners.ErrorListener;
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommand;
 import com.connectsdk.service.command.ServiceCommandError;
