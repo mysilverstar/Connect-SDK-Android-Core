@@ -534,6 +534,7 @@ public class DiscoveryManager implements ConnectableDeviceListener, DiscoveryPro
      * Start scanning for devices on the local network.
      */
     public void start() {
+        Log.w(Util.T, "fuck connecdt sdk DiscoveryManager start...");
         if (mSearching)
             return;
 
