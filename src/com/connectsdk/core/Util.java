@@ -40,6 +40,10 @@ import com.connectsdk.service.capability.listeners.ErrorListener;
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommandError;
 
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Collections;
+
 public final class Util {
     static public String T = "Connect SDK";
 
