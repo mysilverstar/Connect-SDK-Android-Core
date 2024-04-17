@@ -144,35 +144,35 @@ public final class Util {
     }
 
     public static InetAddress getIpAddress(Context context) throws UnknownHostException {
-        /*WifiManager wifiMgr = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiMgr = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
         int ip = wifiInfo.getIpAddress();
 
         if (ip == 0) {
+            /*return null;*/
+            try {
+                // 모든 네트워크 인터페이스를 가져옵니다.
+                for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                    // 네트워크 인터페이스 이름이 "eth"로 시작하는지 확인합니다.
+                    if (ni.getName().startsWith("eth")) {
+                        // 해당 인터페이스에 할당된 IP 주소 목록을 가져옵니다.
+                        for (InetAddress address : Collections.list(ni.getInetAddresses())) {
+                            // 외부로 통신 가능한 IPv4 주소인지 확인합니다.
+                            if (!address.isLoopbackAddress() && address.getAddress().length == 4) {
+                                return address;
+                            }
+                        }
+                    }
+                }
+            } catch (SocketException e) {
+                e.printStackTrace();
+            }
+            // 유선랜 인터페이스를 찾지 못하면 null을 반환합니다.
             return null;
         }
         else {
             byte[] ipAddress = convertIpAddress(ip);
             return InetAddress.getByAddress(ipAddress);
-        }*/
-        try {
-            // 모든 네트워크 인터페이스를 가져옵니다.
-            for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                // 네트워크 인터페이스 이름이 "eth"로 시작하는지 확인합니다.
-                if (ni.getName().startsWith("eth")) {
-                    // 해당 인터페이스에 할당된 IP 주소 목록을 가져옵니다.
-                    for (InetAddress address : Collections.list(ni.getInetAddresses())) {
-                        // 외부로 통신 가능한 IPv4 주소인지 확인합니다.
-                        if (!address.isLoopbackAddress() && address.getAddress().length == 4) {
-                            return address;
-                        }
-                    }
-                }
-            }
-        } catch (SocketException e) {
-            e.printStackTrace();
         }
-        // 유선랜 인터페이스를 찾지 못하면 null을 반환합니다.
-        return null;
     }
 }
