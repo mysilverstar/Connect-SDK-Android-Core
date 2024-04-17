@@ -31,7 +31,7 @@ public class WebOSTVTrustManager implements X509TrustManager {
     public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
         Log.d(Util.T, "Expecting device cert " + (expectedCert != null ? expectedCert.getSubjectDN() : "(any)"));
 
-        /*if (chain != null && chain.length > 0) {
+        if (chain != null && chain.length > 0) {
             X509Certificate cert = chain[0];
 
             lastCheckedCert = cert;
@@ -49,7 +49,7 @@ public class WebOSTVTrustManager implements X509TrustManager {
         } else {
             lastCheckedCert = null;
             throw new CertificateException("no server certificate");
-        }*/
+        }
     }
 
     @Override
