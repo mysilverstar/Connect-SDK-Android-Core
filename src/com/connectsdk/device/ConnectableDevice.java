@@ -58,6 +58,8 @@ import com.connectsdk.service.capability.WebAppLauncher;
 import com.connectsdk.service.command.ServiceCommandError;
 import com.connectsdk.service.config.ServiceDescription;
 
+import com.connectsdk.service.capability.listeners.ResponseListener;
+
 /**
  * ###Overview
  * ConnectableDevice serves as a normalization layer between your app and each of the device's services. It consolidates a lot of key data about the physical device and provides access to underlying functionality.
@@ -949,7 +951,7 @@ public class ConnectableDevice implements DeviceServiceListener {
 
     @Override
     public void getInfo(ResponseListener<Object> listener) {
-        log.e(Util.T, "Connect-SDK-Android-Core getInfo called...");
+        Log.e(Util.T, "Connect-SDK-Android-Core getInfo called...");
     } 
 
     private int getConnectedServiceCount() {
