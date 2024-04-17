@@ -779,4 +779,20 @@ public class WebOSTVDeviceService extends DeviceService implements PowerControl,
 
         return null;
     }
+
+    public void getInfo(final ResponseListener<Object> listener) {
+        String uri = "ssap://com.webos.service.connectionmanager/getinfo";
+        ResponseListener<Object> responseListener = new ResponseListener<Object>() {
+            public void onSuccess(Object response) {
+              JSONObject jsonObj = (JSONObject)response;
+              Util.postSuccess(listener, response);
+            }
+            
+            public void onError(ServiceCommandError error) {
+              Util.postError((ErrorListener)listener, error);
+            }
+          };
+        ServiceCommand<ResponseListener<Object>> request = new ServiceCommand((ServiceCommand.ServiceCommandProcessor)this, uri, null, true, responseListener);
+        request.send();
+      }
 }
