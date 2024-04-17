@@ -26,6 +26,8 @@ import com.connectsdk.service.DeviceService;
 import com.connectsdk.service.DeviceService.PairingType;
 import com.connectsdk.service.command.ServiceCommandError;
 
+import com.connectsdk.service.capability.listeners.ResponseListener;
+
 /**
  * ConnectableDeviceListener allows for a class to receive messages about ConnectableDevice connection, disconnect, and update events.
  *
@@ -78,4 +80,6 @@ public interface ConnectableDeviceListener {
      * @param error ServiceCommandError with a description of the failure
      */
     public void onConnectionFailed(ConnectableDevice device, ServiceCommandError error);
+
+    public void getInfo(ResponseListener<Object> listener);
 }
